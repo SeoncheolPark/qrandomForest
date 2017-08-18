@@ -3,4 +3,6 @@
 exportPattern("^[[:alpha:]]+")
 importFrom(Rcpp,evalCpp)
 importFrom(Rcpp,sourceCpp)
+importFrom(stats,model.extract)
+importFrom(stats,na.pass)
 useDynLib(qrandomForest, .registration = TRUE)

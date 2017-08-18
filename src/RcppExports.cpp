@@ -5,6 +5,22 @@
 
 using namespace Rcpp;
 
+// qtreeCPP
+List qtreeCPP(NumericMatrix pred, NumericVector resp, double minDev, int minCut, int minSize, double tau);
+RcppExport SEXP _qrandomForest_qtreeCPP(SEXP predSEXP, SEXP respSEXP, SEXP minDevSEXP, SEXP minCutSEXP, SEXP minSizeSEXP, SEXP tauSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type pred(predSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type resp(respSEXP);
+    Rcpp::traits::input_parameter< double >::type minDev(minDevSEXP);
+    Rcpp::traits::input_parameter< int >::type minCut(minCutSEXP);
+    Rcpp::traits::input_parameter< int >::type minSize(minSizeSEXP);
+    Rcpp::traits::input_parameter< double >::type tau(tauSEXP);
+    rcpp_result_gen = Rcpp::wrap(qtreeCPP(pred, resp, minDev, minCut, minSize, tau));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_hello
 List rcpp_hello();
 RcppExport SEXP _qrandomForest_rcpp_hello() {
@@ -17,6 +33,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_qrandomForest_qtreeCPP", (DL_FUNC) &_qrandomForest_qtreeCPP, 6},
     {"_qrandomForest_rcpp_hello", (DL_FUNC) &_qrandomForest_rcpp_hello, 0},
     {NULL, NULL, 0}
 };
